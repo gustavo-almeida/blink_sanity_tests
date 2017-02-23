@@ -28,14 +28,14 @@ Esquema do Cenário: CT-03-Login - Alterar idioma da página de login
 		| English   |
 		| Español   |
 
-Cenário: CT-04-Login - Tentar efetuar login sem preencher campos
+Cenário: CT-04-Login - Efetuar login sem preencher campos
 	Dado que estou na página de login do Blink sem estar logado
 	E que nenhum dos campos esteja preenchido
 	Quando clico no botão "Entrar"
 	Então o usuário deve permanecer na mesma página
 	E a mensagem "Nome de usuário ou senha inválido" deve ser exibida
 
-Cenário: CT-05-Login - Tentar efetuar login sem preencher campo senha
+Cenário: CT-05-Login - Efetuar login sem preencher campo senha
 	Dado que estou na página de login do Blink sem estar logado	
 	Quando preencho o campo usuário com um usuário válido
 	E deixo o campo senha em branco
@@ -43,7 +43,7 @@ Cenário: CT-05-Login - Tentar efetuar login sem preencher campo senha
 	Então o usuário deve permanecer na mesma página
 	E a mensagem "Nome de usuário ou senha inválido" deve ser exibida
 
-Cenário: CT-06-Login - Tentar efetuar login sem preencher campo usuário
+Cenário: CT-06-Login - Efetuar login sem preencher campo usuário
 	Dado que estou na página de login do Blink sem estar logado	
 	Quando preencho o campo senha com uma senha válida
 	E deixo o campo usuário em branco	
@@ -51,7 +51,7 @@ Cenário: CT-06-Login - Tentar efetuar login sem preencher campo usuário
 	Então o usuário deve permanecer na mesma página
 	E a mensagem "Nome de usuário ou senha inválido" deve ser exibida
 
-Cenário: CT-07-Login - Tentar efetuar login com senha inválida
+Cenário: CT-07-Login - Efetuar login com senha inválida
 	Dado que estou na página de login do Blink sem estar logado
 	Quando preencho o campo usuário com um usuário válido
 	E preencho o campo senha com uma senha inválida	
@@ -59,7 +59,7 @@ Cenário: CT-07-Login - Tentar efetuar login com senha inválida
 	Então o usuário deve permanecer na mesma página
 	E a mensagem "Nome de usuário ou senha inválido" deve ser exibida
 
-Cenário: CT-08-Login - Tentar efetuar login com usuário inválido
+Cenário: CT-08-Login - Efetuar login com usuário inválido
 	Dado que estou na página de login do Blink sem estar logado
 	Quando preencho o campo usuário com um usuário inválido
 	E preencho o campo senha com uma senha válida
@@ -76,7 +76,14 @@ Cenário: CT-09-Login - Efetuar login com dados válidos
 	E o usuário deve ser redirecionado para a página Visão Geral do Blink
 	E deve ser exibida mensagem de saudação "Olá, <nome do usuário>" no canto superior direito
 
-Cenário: CT-10-Login - Tentar efetuar login com usuário já logado
+Cenário: CT-10-Login - Efetuar Logout
+	Dado que esteja logado no Blink
+	Quando clico em opções de usuário no canto superior direito
+	E clico em Sair
+	Então o usuário é deslogado com sucesso
+	E redirecionado para a tela de Login
+
+Cenário: CT-11-Login - Efetuar login com usuário já logado
 	Dado que eu tenha logado no Blink em outra máquina ou navegador
 	E que esteja na página de login do Blink sem estar logado
 	Quando preencho os campos com dados válidos do mesmo usuário que já está logado em outra máquina ou navegador
@@ -85,13 +92,13 @@ Cenário: CT-10-Login - Tentar efetuar login com usuário já logado
 	E a mensagem "Usuário em uso" deve ser exibida
 	E o acesso do usuário que estava logado anteriormente deve ser revogado
 
-Cenário: CT-11-Login - Confirmar login com usuário já logado
+Cenário: CT-12-Login - Confirmar login com usuário já logado
 	Dado que eu tenha executado os passos do caso de teste CT-10-Login
 	Então quando eu clico Entrar
 	E o usuário deve ser redirecionado para a página Visão Geral do Blink
 	E deve ser exibida mensagem de saudação "Olá, <nome do usuário>" no canto superior direito
 
-Cenário: CT-12-Login - Validar página de lembrete de senha
+Cenário: CT-13-Login - Validar página de lembrete de senha
 	Dado que estou na página de login do Blink sem estar logado
 	Quando seleciono a opção "Esqueci minha senha"
 	Então o sistema exibe um novo modal com título "Recuperar senha"
@@ -99,31 +106,31 @@ Cenário: CT-12-Login - Validar página de lembrete de senha
 	E opção Enviar
 	E opção Voltar
 
-Cenário: CT-13-Login - Enviar senha sem preencher campo e-mail
+Cenário: CT-14-Login - Enviar senha sem preencher campo e-mail
 	Dado que estou na página de recuperação de senha
 	E o campo E-mail está em branco
 	Quando clico em Enviar
 	Então uma mensagem de e-mail inválido deve ser exibida
 
-Cenário: CT-14-Login - Enviar senha com e-mail inválido
+Cenário: CT-15-Login - Enviar senha com e-mail inválido
 	Dado que estou na página de recuperação de senha
 	Quando preencho o campo E-mail com dados inválidos
 	E clico em Enviar
 	Então a mensagem "E-mail inválido" deve ser exibida
 
-Cenário: CT-15-Login - Enviar senha com e-mail não cadastrado
+Cenário: CT-16-Login - Enviar senha com e-mail não cadastrado
 	Dado que estou na página de recuperação de senha
 	Quando preencho o campo E-mail com um e-mail não cadastrado
 	E clico em Enviar
 	Então a mensagem "E-mail inválido" deve ser exibida
 
-Cenário: CT-16-Login - Voltar para a tela de login
+Cenário: CT-17-Login - Voltar para a tela de login
 	Dado que estou na página de recuperação de senha
 	Quando preencho o campo E-mail com dados válidos
 	E seleciono a opção Voltar
 	Então o usuário deve ser redirecionado para a tela inicial de login
 
-Cenário: CT-17-Login - Enviar senha com e-mail válido
+Cenário: CT-18-Login - Enviar senha com e-mail válido
 	Dado que estou na página de recuperação de senha
 	Quando preencho o campo E-mail com dados válidos
 	E clico em Enviar
