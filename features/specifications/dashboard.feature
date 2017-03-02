@@ -65,3 +65,43 @@ Cenário: CT-06-Tela_Inicial - Realizar filtro de dashboard com data inicial mai
 	E seleciono opção filtrar
 	Então a mensagem "Nenhum Resultado encontrado" deve ser exibida
 	E o filtro não deve ser realizado
+
+Cenário: CT-07-Tela_Inicial - Realizar filtro de dashboard com data inicial inválida
+	Dado que eu esteja logado na página inicial do Blink
+	Quando seleciono uma suíte qualquer no filtro do dashboard
+	E preencho a data inicial com dados inválidos
+	E mudo o foco do cursor
+	Então a data inicial deve voltar para a data padrão
+
+Cenário: CT-08-Tela_Inicial - Realizar filtro de dashboard com data final inválida
+	Dado que eu esteja logado na página inicial do Blink
+	Quando seleciono uma suíte qualquer no filtro do dashboard
+	E preencho a data final com dados inválidos
+	E mudo o foco do cursor
+	Então a data final deve voltar para a data padrão
+
+Cenário: CT-09-Tela_Inicial - Realizar filtro de dashboard com período que não ocorreu testes
+	Dado que eu esteja logado na página inicial do Blink
+	Quando seleciono uma suíte qualquer no filtro do dashboard
+	E seleciono um período de datas onde não ocorreram testes para a suíte selecionada
+	E seleciono opção filtrar
+	Então a mensagem "Nenhum Resultado encontrado" deve ser exibida
+	E o filtro não deve ser realizado
+
+Cenário: CT-10-Tela_Inicial - Realizar filtro de dashboard com dados válidos
+	Dado que eu esteja logado na página inicial do Blink
+	Quando seleciono uma suíte qualquer no filtro do dashboard
+	E seleciono um período de datas válido onde ocorreram testes para a suíte selecionada
+	E seleciono opção filtrar
+	Então o dashboard deve ser atualizado
+	E e exibir dados consistentes com o filtro selecionado
+
+@sanity
+Cenário: CT-11-Tela_Inicial - Gerar relatório em PDF a partir do dashboard
+	Dado que eu esteja logado na página inicial do Blink
+	E que tenha realizado um filtro do dashboard com sucesso
+	Quando clico na opção de exportar relatório
+	E confirmo
+	Então Uma mensagem de sucesso de ve ser exibida "Relatório disponível dentro de alguns minutos dentro de Relatórios exportados"
+	E dentro de alguns minutos o relatório deve estar acessível em Relatórios > Exportados
+	E seu conteúdo deve ser consistente com os dados filtrados no dashboard
