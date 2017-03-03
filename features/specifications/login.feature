@@ -67,6 +67,7 @@ Cenário: CT-08-Login - Efetuar login com usuário inválido
 	Então o usuário deve permanecer na mesma página
 	E a mensagem "Nome de usuário ou senha inválido" deve ser exibida
 
+@sanity
 Cenário: CT-09-Login - Efetuar login com dados válidos
 	Dado que estou na página de login do Blink sem estar logado
 	Quando preencho o campo usuário com um usuário válido
@@ -76,6 +77,7 @@ Cenário: CT-09-Login - Efetuar login com dados válidos
 	E o usuário deve ser redirecionado para a página Visão Geral do Blink
 	E deve ser exibida mensagem de saudação "Olá, <nome do usuário>" no canto superior direito
 
+@sanity
 Cenário: CT-10-Login - Efetuar Logout
 	Dado que esteja logado no Blink
 	Quando clico em opções de usuário no canto superior direito
@@ -93,8 +95,8 @@ Cenário: CT-11-Login - Efetuar login com usuário já logado
 	E o acesso do usuário que estava logado anteriormente deve ser revogado
 
 Cenário: CT-12-Login - Confirmar login com usuário já logado
-	Dado que eu tenha executado os passos do caso de teste CT-10-Login
-	Então quando eu clico Entrar
+	Dado que eu tenha executado o caso de teste anterior
+	E clico no botão "Entrar"
 	E o usuário deve ser redirecionado para a página Visão Geral do Blink
 	E deve ser exibida mensagem de saudação "Olá, <nome do usuário>" no canto superior direito
 
@@ -124,7 +126,7 @@ Cenário: CT-16-Login - Enviar senha com e-mail não cadastrado
 	E clico em Enviar
 	Então a mensagem "E-mail inválido" deve ser exibida
 
-Cenário: CT-17-Login - Voltar para a tela de login
+Cenário: CT-17-Login - Cancelar recuperação de senha
 	Dado que estou na página de recuperação de senha
 	Quando preencho o campo E-mail com dados válidos
 	E seleciono a opção Voltar
