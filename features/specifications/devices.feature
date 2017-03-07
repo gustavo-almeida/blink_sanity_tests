@@ -27,7 +27,6 @@ Cenário: CT-03-Devices - Realizar busca com dados em branco
 	Então uma mensagem informando que o campo não foi preenchido deve ser exibida
 	E a listagem de aparelhos exibida anteriormente não deve sofrer alterações
 
-#todo
 Cenário: CT-04-Devices - Realizar busca com dados inválidos
 	Dado que estou logado no Blink
 	E estou na página de Aparelhos
@@ -125,9 +124,10 @@ Esquema do Cenário: CT-13-Devices - Conectar em dispositivo não disponível
 		| ocupado |
 		| offline |
 
+@sanity
 Cenário: CT-14-Devices - Conectar em dispositivo disponível
 	Dado que estou logado no Blink
 	E estou na página de Aparelhos
 	Quando clico em Conectar em um dispositivo que esteja com status online
 	Então o usuário deve ser redirecionado para a página de criação de caso de teste
-	E conectar ao aparelho selecionado exibindo sua tela atual
+	E o sistema conecta ao aparelho selecionado exibindo sua tela atual
