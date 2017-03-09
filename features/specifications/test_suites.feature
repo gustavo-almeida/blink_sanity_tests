@@ -74,7 +74,6 @@ Cenário: CT-06-Test_Suites - Validar modal de seleção de aparelhos na execuç
 	E opção 'Executar' em cada um dos aparelhos na coluna Ação
 	E com possíveis status 'Disponível', 'Ocupado' e 'Offline' na coluna Status
 	E checkbox de seleção em cada um dos aparelhos
-	E opção 'Executar suíte' não deve ser exibido
 	E opção 'Fechar'
 
 Esquema do Cenário: CT-07-Test_Suites - Realizar busca no modal de seleção de aparelhos na execução de testes em massa
@@ -282,6 +281,7 @@ Cenário: CT-22-Test_Suites - Fechar modal de informações da Suíte de Testes
 	Então o modal deve ser fechado
 	E o usuário deve ser redirecionado para a listagem de suítes de testes sem alterações
 
+@sanity
 Cenário: CT-23-Test_Suites - Iniciar edição de casos de testes por informações da suíte de testes
 	Dado que estou logado no Blink
 	E estou na página de Suítes de Testes
@@ -290,3 +290,95 @@ Cenário: CT-23-Test_Suites - Iniciar edição de casos de testes por informaç�
 	Então o usuário deve ser redirecionado para a página de criação de caso de teste
 	E o sistema exibe o nome do caso de teste escolhido logo acima do espaço da tela do aparelho
 	E na lateral direita deve ser exibida a lista de passos criadas para esse caso de teste
+
+Cenário: CT-24-Test_Suites - Validar modal de seleção de aparelhos na execução de testes individual
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	Então um modal deve ser exibido com título Aparelhos disponíveis
+	E campo Busca
+	E listagem de aparelhos com colunas Modelo, Fabricante, Tipo, SO, Versão, Status, Ação
+	E opção 'Executar' em cada um dos aparelhos na coluna Ação
+	E com possíveis status 'Disponível', 'Ocupado' e 'Offline' na coluna Status
+	E checkbox de seleção em cada um dos aparelhos
+	E opção 'Fechar'
+
+Esquema do Cenário: CT-25-Test_Suites - Realizar busca no modal de seleção de aparelhos na execução de testes individual
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E preencha o campo Busca com as primeiras letras do <item> da listagem
+	Então a lista de aparelhos deve ser atualizada 
+	Mas exibir apenas os aparelhos que atendem ao termo buscado
+
+	Exemplos:
+		| item       |
+		| Modelo     |
+		| Fabricante |
+		| Tipo       |
+		| SO         |
+		| Versão     |
+		| Status     |
+
+Esquema do Cenário: CT-26-Test_Suites - Ordenar itens no modal de seleção de aparelhos na execução de testes individual
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E clico no cabeçalho <header> da tabela de aparelhos
+	Então a listagem deve ficar ordenada de forma crescente/decrescente
+	E uma pequena seta deve indicar a direção
+
+	Exemplos:
+		| header     |
+		| Modelo     |
+		| Fabricante |
+		| Tipo       |
+		| SO         |
+		| Versão     |
+		| Status     |
+
+Cenário: CT-27-Test_Suites - Cancelar execução de testes individual no modal de seleção de aparelhos
+	Dado que estou logado no Blink
+	E estou na página de Suítes de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E no modal de seleção de aparelhos eu clique em 'Fechar'
+	Então a execução de teste deve ser cancelada
+	E o modal deve ser fechado
+	E o usuário deve ser redirecionado para a listagem de suítes de testes
+
+Cenário: CT-28-Test_Suites - Exibir opção Executar suíte no modal de seleção de aparelhos na execução de testes individual
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E na listagem de aparelhos eu selecione um ou mais checkbox de aparelhos
+	Então a opção 'Executar suíte' deve ser exibida
+	Mas deve voltar a ficar oculta caso os mesmos aparelhos selecionados anteriormente sejam desmarcados
+
+Cenário: CT-29-Test_Suites - Validar modal de seleção de número de execuções em testes individual
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E na lista de aparelhos eu clique na opção 'Executar' em um dos aparelhos
+	Então o sistema exibirá um modal com título 'Suite de testes' 
+	E campo 'Número de execuções' preenchido com '1' por padrão
+	E opções 'Concluir' e 'Fechar'
+
+Cenário: CT-30-Test_Suites - Realizar uma execução de testes individual com número de execuções inválido
+	Dado que estou logado no Blink
+	E estou na página de Suites de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E na lista de aparelhos eu clique na opção 'Executar' em um dos aparelhos
+	E no modal exibido eu altere o campo 'Número de execuções' com valor inválido
+	Então o sistema desabilitará o botão 'Concluir'
+	E eu não consigo avançar com a execução
+
+Cenário: CT-31-Test_Suites - Cancelar execução de testes individual no modal de seleção de número de execuções
+	Dado que estou logado no Blink
+	E estou na página de Suítes de Testes
+	Quando seleciono a opção 'Executar' em alguma suíte de testes da listagem
+	E na lista de aparelhos eu clique na opção 'Executar' em um dos aparelhos
+	E no modal exibido eu altere o campo 'Número de execuções' com valor válido
+	E eu clique em 'Fechar'
+	Então a execução de teste deve ser cancelada
+	E o modal deve ser fechado
+	E o usuário deve ser redirecionado para a listagem de suítes de testes
