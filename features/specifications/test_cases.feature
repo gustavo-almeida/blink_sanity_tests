@@ -14,6 +14,7 @@ Cenário: CT-01-Test_Cases - Validar tela de caso de testes do Blink
 	E tabela com últimos casos de testes criados/editados
 	E checkbox para seleção em cada uma das linhas da tabela
 	E com colunas Nome, Criador, Data de Atualização e Ações
+	E a coluna Data de Atualização deve exibir a data/hora no formato do idioma escolhida no sistema
 	E opções 'Editar', 'Duplicar' e 'Excluir' na coluna Ações
 	E na última linha da tabela uma opção para expandir exibição de casos de teste
 
@@ -94,7 +95,6 @@ Esquema do Cenário: CT-08-Test_Cases - Cancelar criação de novo caso de teste
 		| Fechar modal |
 		| Botão Fechar |
 
-
 Cenário: CT-09-Test_Cases - Criar novo caso de teste com dados em branco
 	Dado que estou logado no Blink
 	E estou na página de Casos de Teste
@@ -136,7 +136,7 @@ Cenário: CT-13-Test_Cases - Realizar busca com dados válidos
 	Quando preencho o campo de busca com dados válidos
 	E clico na opção Buscar
 	Então a tabela deve ser atualizada
-	E exibir na listagem apenas os Casos de Teste de acordo com o termo utilizado na busca
+	E exibir na listagem apenas os itens de acordo com o termo utilizado na busca
 
 Esquema do Cenário: CT-14-Test_Cases - Ordenar listagem de casos de testes
 	Dado que estou logado no Blink
