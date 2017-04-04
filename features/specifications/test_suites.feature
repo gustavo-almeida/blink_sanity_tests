@@ -95,7 +95,7 @@ Esquema do Cenário: CT-07-Test_Suites - Realizar busca no modal de seleção de
 		| Versão     |
 		| Status     |
 
-Esquema do Cenário: CT-08-Test_Suites - Ordenar itens no modal de seleção de aparelhos na execução de tests em massa
+Esquema do Cenário: CT-08-Test_Suites - Ordenar itens no modal de seleção de aparelhos na execução de testes em massa
 	Dado que estou logado no Blink
 	E estou na página de Suites de Testes
 	Quando seleciono o checkbox de um ou mais suítes de testes na listagem
@@ -331,13 +331,13 @@ Cenário: CT-28-Test_Suites - Fechar modal de informações da Suíte de Testes
 	E o usuário deve ser redirecionado para a listagem de suítes de testes sem alterações
 
 @sanity
-Cenário: CT-29-Test_Suites - Iniciar edição de suítes de testes por informações da suíte de testes
+Cenário: CT-29-Test_Suites - Iniciar edição de casos de teste por informações da suíte de testes
 	Dado que estou logado no Blink
 	E estou na página de Suítes de Testes
 	Quando seleciono a opção 'Informações' de alguma suíte de testes da listagem
-	E clico em "Editar" em alguma suíte de teste da listagem
-	Então o usuário deve ser redirecionado para a página de criação de suíte de teste
-	E o sistema exibe o nome do suíte de teste escolhido logo acima do espaço da tela do aparelho
+	E clico em "Editar" em algum caso de teste da listagem
+	Então o usuário deve ser redirecionado para a página de criação de caso de teste
+	E o sistema exibe o nome do caso de teste escolhido logo acima do espaço da tela do aparelho
 	E na lateral direita deve ser exibida a lista de passos criadas para esse suíte de teste
 
 Cenário: CT-30-Test_Suites - Validar modal de seleção de aparelhos na execução de testes individual
